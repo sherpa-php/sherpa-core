@@ -30,7 +30,8 @@ class Route
             throw new ControllerClassOrMethodNotFoundException();
         }
 
-        call_user_func([$this->getControllerClass(), $this->getControllerMethod()], "Hello, World! :)");
+        $controllerInstance = new ($this->getControllerClass())();
+        call_user_func([$controllerInstance, $this->getControllerMethod()], "Hello, World! :)");
     }
 
     /**
