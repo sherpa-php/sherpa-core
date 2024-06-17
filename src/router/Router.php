@@ -14,9 +14,12 @@ class Router
      * @param string $path Web path (from URI)
      * @return Route
      */
-    public static function register(HttpMethod $httpMethod, string $path): Route
+    public static function register(HttpMethod $httpMethod,
+                                    string $path,
+                                    string $controllerClass,
+                                    string $controllerMethod): Route
     {
-        return self::$routes[] = new Route($httpMethod, $path);
+        return self::$routes[] = new Route($httpMethod, $path, $controllerClass, $controllerMethod);
     }
 
     /**
@@ -25,9 +28,9 @@ class Router
      * @param string $path Web path (from URI)
      * @return Route
      */
-    public static function get(string $path): Route
+    public static function get(string $path, string $controllerClass, string $controllerMethod): Route
     {
-        return self::register(HttpMethod::GET, $path);
+        return self::register(HttpMethod::GET, $path, $controllerClass, $controllerMethod);
     }
 
     /**
@@ -36,9 +39,9 @@ class Router
      * @param string $path Web path (from URI)
      * @return Route
      */
-    public static function post(string $path): Route
+    public static function post(string $path, string $controllerClass, string $controllerMethod): Route
     {
-        return self::register(HttpMethod::POST, $path);
+        return self::register(HttpMethod::POST, $path, $controllerClass, $controllerMethod);
     }
 
     /**
