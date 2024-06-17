@@ -2,8 +2,8 @@
 
 namespace Sherpa\Core\router;
 
-enum HttpMethod
+enum HttpMethod: string
 {
-    case GET;
-    case POST;
+    case GET = "GET";
+    case POST = "POST";
 }
