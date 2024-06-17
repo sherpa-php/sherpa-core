@@ -1,0 +1,17 @@
+{
+    "name": "sherpa/core",
+    "description": "Sherpa framework core",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sherpa\\Core\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jonathan",
+            "email": "96206878+belicfr@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
