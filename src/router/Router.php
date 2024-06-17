@@ -41,4 +41,12 @@ class Router
         return self::register(HttpMethod::POST, $path);
     }
 
+    /**
+     * @return array Routes list
+     */
+    public static function getRoutes(): array
+    {
+        return self::$routes;
+    }
+
 }
