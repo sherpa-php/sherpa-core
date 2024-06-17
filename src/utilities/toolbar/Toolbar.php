@@ -10,7 +10,7 @@ class Toolbar
      *
      * @param float $loadingTime Current page loading time in milliseconds
      */
-    public static function render(float $loadingTime): void
+    public static function render(float $loadingTime = 0.): void
     {
         include "toolbar.c.php";
     }
