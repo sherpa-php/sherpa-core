@@ -8,7 +8,7 @@ class Router
     private static array $routes = [];
 
     /**
-     * Declare a new route into router internal repository.
+     * Declare a new route into router internal list.
      *
      * @param HttpMethod $method HTTP request method
      * @param string $path Web path (from URI)
@@ -20,7 +20,7 @@ class Router
     }
 
     /**
-     * Declare a GET route into router internal repository.
+     * Declare a GET route into router internal list.
      *
      * @param string $path Web path (from URI)
      * @return Route
@@ -31,7 +31,7 @@ class Router
     }
 
     /**
-     * Declare a POST route into router internal repository.
+     * Declare a POST route into router internal list.
      *
      * @param string $path Web path (from URI)
      * @return Route
