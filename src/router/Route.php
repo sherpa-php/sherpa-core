@@ -2,6 +2,8 @@
 
 namespace Sherpa\Core\router;
 
+use Sherpa\Core\controllers\exceptions\ControllerClassOrMethodNotFoundException;
+
 class Route
 {
 
@@ -16,6 +18,19 @@ class Route
         $this->path = $path;
         $this->controllerClass = $controllerClass;
         $this->controllerMethod = $controllerMethod;
+    }
+
+    /**
+     * @throws ControllerClassOrMethodNotFoundException
+     */
+    public function run(): void
+    {
+        if (!method_exists($this->getControllerClass(), $this->controllerMethod))
+        {
+            throw new ControllerClassOrMethodNotFoundException();
+        }
+
+        call_user_func([$this->getControllerClass(), $this->getControllerMethod()], "Hello, World! :)");
     }
 
     /**
