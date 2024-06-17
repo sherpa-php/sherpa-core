@@ -1,6 +1,8 @@
 <div id="sherpa_dev_toolbar" sherpa-utilities>
 
-
+  <div id="sherpa_dev_toolbar__loading_time">
+    <?= $loadingTime ?>ms
+  </div>
 
 </div>
 
