@@ -49,4 +49,21 @@ class Router
         return self::$routes;
     }
 
+    /**
+     * Search and return last route using given path.
+     *
+     * @param string $path
+     * @return Route|null Route object or null
+     *                    if none uses given path
+     */
+    public static function getRouteByPath(string $path): ?Route
+    {
+        $routeFilter = array_filter(self::getRoutes(), function ($route) use ($path)
+        {
+            return $route->getPath() === "/$path";
+        });
+
+        return end($routeFilter) ?: null;
+    }
+
 }
