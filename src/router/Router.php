@@ -14,9 +14,9 @@ class Router
      * @param string $path Web path (from URI)
      * @return Route
      */
-    public static function register(HttpMethod $method, string $path): Route
+    public static function register(HttpMethod $httpMethod, string $path): Route
     {
-        return self::$routes[] = new Route();
+        return self::$routes[] = new Route($httpMethod, $path);
     }
 
     /**
