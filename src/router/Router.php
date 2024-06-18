@@ -87,7 +87,7 @@ class Router
 
         $route = end($routeFilter);
 
-        if ($route === null)
+        if (!$route)
         {
             return null;
         }
