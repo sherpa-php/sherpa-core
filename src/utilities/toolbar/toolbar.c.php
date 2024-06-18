@@ -17,7 +17,7 @@
   </div>
 
   <div id="sherpa_dev_toolbar__route_controller">
-    Controller: <?= $currentRoute->getControllerClass() ?>
+    Controller: <span>--</span>
   </div>
 
   <div id="sherpa_dev_toolbar__route_controller_method">
@@ -43,6 +43,12 @@
               .innerText = loadingTime;
       }, 0);
   });
+
+
+  let controllerClassPathParts = "<?= $currentRoute->getControllerClass() ?>".split('\\');
+
+  document.querySelector("#sherpa_dev_toolbar__route_controller > span")
+      .innerText = controllerClassPathParts[controllerClassPathParts.length - 1];
 
 </script>
 
