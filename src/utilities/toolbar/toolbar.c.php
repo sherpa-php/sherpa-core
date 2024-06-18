@@ -19,7 +19,7 @@
   window.addEventListener("load", () => {
       setTimeout(() => {
           let [navigationEntry] = performance.getEntriesByType("navigation"),
-              loadingTime = navigationEntry.loadEventEnd - navigationEntry.startTime;
+              loadingTime = (navigationEntry.loadEventEnd - navigationEntry.startTime).toFixed();
 
           console.log("Page loading time = " + loadingTime);
 
