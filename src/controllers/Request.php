@@ -56,11 +56,29 @@ class Request
     }
 
     /**
+     * @param string $key Request GET parameter key
+     * @return bool If request has this key as GET parameter key
+     */
+    public function hasParameter(string $key): bool
+    {
+        return isset($this->getParameters()[$key]);
+    }
+
+    /**
      * @return array Prepared request POST parameters
      */
     public function getInputs(): array
     {
         return $this->inputs;
+    }
+
+    /**
+     * @param string $key Request POST input key
+     * @return bool If request has this key as POST input key
+     */
+    public function hasInput(string $key): bool
+    {
+        return isset($this->inputs[$key]);
     }
 
 }
