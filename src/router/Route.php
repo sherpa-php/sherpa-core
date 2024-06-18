@@ -47,7 +47,8 @@ class Route
         }
 
         $controllerInstance = new ($this->getControllerClass())();
-        call_user_func([$controllerInstance, $this->getControllerMethod()], "Hello, World! :)");
+        call_user_func([$controllerInstance, $this->getControllerMethod()],
+                       ...$this->getParameters());
     }
 
     /**
