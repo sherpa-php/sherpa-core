@@ -62,14 +62,22 @@ class Router
      * @param string $path
      * @return Route|null Route object or null
      *                    if none uses given path
-     * @throws InvalidHttpMethodException
      */
     public static function getRouteByPath(string $path): ?Route
     {
         $routeFilter = array_filter(self::getRoutes(), function ($route) use ($path)
         {
+            try
+            {
+                $httpMethod = Router::getHttpMethod();
+            }
+            catch (InvalidHttpMethodException $e)
+            {
+                return false;
+            }
+
             return $route->getPath() === "/$path"
-                && $route->getHttpMethod() === Router::getHttpMethod();
+                && $route->getHttpMethod() === $httpMethod;
         });
 
         return end($routeFilter) ?: null;
@@ -81,14 +89,22 @@ class Router
      * @param string $name
      * @return Route|null Route object or null
      *                    if none has given name
-     * @throws InvalidHttpMethodException
      */
     public static function getRouteByName(string $name): ?Route
     {
         $routeFilter = array_filter(self::getRoutes(), function ($route) use ($name)
         {
+            try
+            {
+                $httpMethod = Router::getHttpMethod();
+            }
+            catch (InvalidHttpMethodException $e)
+            {
+                return false;
+            }
+
             return $route->getName() === $name
-                && $route->getHttpMethod() === Router::getHttpMethod();
+                && $route->getHttpMethod() === $httpMethod;
         });
 
         return end($routeFilter) ?: null;
