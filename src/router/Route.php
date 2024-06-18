@@ -9,12 +9,14 @@ use Sherpa\Core\router\exceptions\RouteAndCurrentHttpMethodsDoesNotMatchExceptio
 
 class Route
 {
+    private const PATH_VARIABLE_REGEXP = "/\{([a-z]+)}/";
 
     private HttpMethod $httpMethod;
     private string $path;
     private string $controllerClass;
     private string $controllerMethod;
     private ?string $name;
+    private array $parameters;
 
     public function __construct($httpMethod, $path, $controllerClass, $controllerMethod)
     {
@@ -23,6 +25,9 @@ class Route
         $this->controllerClass = $controllerClass;
         $this->controllerMethod = $controllerMethod;
         $this->name = null;
+        $this->parameters = [];
+
+        // $this->prepareParametersArray();
     }
 
     /**
@@ -84,7 +89,7 @@ class Route
     {
         $escapedPath = str_replace('/', '\/', $this->getPath());
 
-        return preg_replace("/\{([a-z]+)}/",
+        return preg_replace(self::PATH_VARIABLE_REGEXP,
                             "([^\/]+)",
                             $escapedPath);
     }
@@ -111,6 +116,48 @@ class Route
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    /**
+     * @return array Path parameters
+     *               (like /hello/{name} => /hello/john)
+     */
+    public function getParameters(): array
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * Append a new parameter for route path
+     *
+     * @param mixed $value Parameter value
+     * @return $this
+     */
+    public function addParameter(mixed $value): Route
+    {
+        $this->parameters[] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Initialize route parameters array by adding keys.
+     */
+    private function prepareParametersArray(): void
+    {
+        preg_match_all(self::PATH_VARIABLE_REGEXP,
+                       $this->getPath(),
+                       $parameters);
+
+        if (count($parameters))
+        {
+            unset($parameters[0]);
+
+            foreach ($parameters[1] as $parameter)
+            {
+                $this->parameters[$parameter] = null;
+            }
+        }
     }
 
 }
