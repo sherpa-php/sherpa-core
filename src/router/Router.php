@@ -96,11 +96,15 @@ class Router
                        "/$path",
                        $routeParameters);
 
-        unset($routeParameters[0]);  // Remove useless complete matching expressions array
-
-        foreach ($routeParameters[1] as $parameter)
+        if (count($routeParameters) > 1)
         {
-            $route->addParameter($parameter);
+            // Remove useless complete matching expressions array
+            unset($routeParameters[0]);
+
+            foreach ($routeParameters[1] as $parameter)
+            {
+                $route->addParameter($parameter);
+            }
         }
 
         return $route;
