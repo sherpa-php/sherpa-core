@@ -84,7 +84,7 @@ class Router
                                         '\/',
                                         $route->getPreparedPath());
 
-            return preg_match('/' . $route->getPreparedPath() . '/', "/$path")
+            return preg_match('/' . $preparedPath . '/', "/$path")
                 && $route->getHttpMethod() === $httpMethod;
         });
 
