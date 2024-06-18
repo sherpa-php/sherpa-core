@@ -30,6 +30,8 @@ class Router
      * Declare a GET route into router internal list.
      *
      * @param string $path Web path (from URI)
+     * @param string $controllerClass Controller to use with route
+     * @param string $controllerMethod Controller method to run
      * @return Route
      */
     public static function get(string $path, string $controllerClass, string $controllerMethod): Route
@@ -41,6 +43,8 @@ class Router
      * Declare a POST route into router internal list.
      *
      * @param string $path Web path (from URI)
+     * @param string $controllerClass Controller to use with route
+     * @param string $controllerMethod Controller method to run
      * @return Route
      */
     public static function post(string $path, string $controllerClass, string $controllerMethod): Route
