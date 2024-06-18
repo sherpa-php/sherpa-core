@@ -84,7 +84,23 @@ class Router
                 && $route->getHttpMethod() === $httpMethod;
         });
 
-        return end($routeFilter) ?: null;
+        $route = end($routeFilter);
+
+        if ($route === null)
+        {
+            return null;
+        }
+
+        preg_match_all("/([^\/]+)/", $path, $routeParameters);
+
+        unset($routeParameters[0]);  // Remove useless complete matching expressions array
+
+        foreach ($routeParameters[1] as $parameter)
+        {
+            $route->addParameter($parameter);
+        }
+
+        return $route;
     }
 
     /**
