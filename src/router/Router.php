@@ -2,6 +2,8 @@
 
 namespace Sherpa\Core\router;
 
+use Sherpa\Core\router\exceptions\InvalidHttpMethodException;
+
 class Router
 {
 
@@ -10,8 +12,10 @@ class Router
     /**
      * Declare a new route into router internal list.
      *
-     * @param HttpMethod $method HTTP request method
+     * @param HttpMethod $httpMethod Route HTTP method
      * @param string $path Web path (from URI)
+     * @param string $controllerClass Controller to use with route
+     * @param string $controllerMethod Controller method to run
      * @return Route
      */
     public static function register(HttpMethod $httpMethod,
@@ -58,15 +62,31 @@ class Router
      * @param string $path
      * @return Route|null Route object or null
      *                    if none uses given path
+     * @throws InvalidHttpMethodException
      */
     public static function getRouteByPath(string $path): ?Route
     {
         $routeFilter = array_filter(self::getRoutes(), function ($route) use ($path)
         {
-            return $route->getPath() === "/$path";
+            return $route->getPath() === "/$path"
+                && $route->getHttpMethod() === Router::getHttpMethod();
         });
 
         return end($routeFilter) ?: null;
+    }
+
+    /**
+     * @return HttpMethod Current request HTTP method
+     * @throws InvalidHttpMethodException If current HTTP method is invalid
+     */
+    public static function getHttpMethod(): HttpMethod
+    {
+        return match ($_SERVER["REQUEST_METHOD"])
+        {
+            "GET"   =>  HttpMethod::GET,
+            "POST"  =>  HttpMethod::POST,
+            default =>  throw new InvalidHttpMethodException(),
+        };
     }
 
 }
