@@ -3,6 +3,8 @@
 namespace Sherpa\Core\router;
 
 use Sherpa\Core\controllers\exceptions\ControllerClassOrMethodNotFoundException;
+use Sherpa\Core\router\exceptions\InvalidHttpMethodException;
+use Sherpa\Core\router\exceptions\RouteAndCurrentHttpMethodsDoesNotMatchException;
 
 class Route
 {
@@ -21,10 +23,16 @@ class Route
     }
 
     /**
-     * @throws ControllerClassOrMethodNotFoundException
+     * @throws RouteAndCurrentHttpMethodsDoesNotMatchException
+     * @throws ControllerClassOrMethodNotFoundException|InvalidHttpMethodException
      */
     public function run(): void
     {
+        if ($this->getHttpMethod() !== Router::getHttpMethod())
+        {
+            throw new RouteAndCurrentHttpMethodsDoesNotMatchException();
+        }
+
         if (!method_exists($this->getControllerClass(), $this->controllerMethod))
         {
             throw new ControllerClassOrMethodNotFoundException();
