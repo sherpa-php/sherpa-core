@@ -13,7 +13,7 @@
   </div>
 
   <div id="sherpa_dev_toolbar__route_http_method">
-    HTTP method: <?= $currentRoute->getHttpMethod() ?>
+    HTTP method: <?= $currentRoute->getHttpMethod()->name() ?>
   </div>
 
   <div id="sherpa_dev_toolbar__route_controller">
