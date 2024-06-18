@@ -45,7 +45,7 @@
   });
 
 
-  let controllerClassPathParts = "<?= preg_replace('\\', '\\\\', $currentRoute->getControllerClass()) ?>".split('\\');
+  let controllerClassPathParts = "<?= str_replace('\\', '\\\\', $currentRoute->getControllerClass()) ?>".split('\\');
 
   document.querySelector("#sherpa_dev_toolbar__route_controller > span")
       .innerText = controllerClassPathParts[controllerClassPathParts.length - 1];
