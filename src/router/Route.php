@@ -70,7 +70,7 @@ class Route
     }
 
     /**
-     * @return string Route URI path
+     * @return string Route path
      */
     public function getPath(): string
     {
