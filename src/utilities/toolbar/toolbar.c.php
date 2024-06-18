@@ -1,7 +1,11 @@
 <div id="sherpa_dev_toolbar" sherpa-utilities>
 
-  <div id="sherpa_dev_toolbar__loading_time">
-    <?= $loadingTime ?>ms
+  <div id="sherpa_dev_toolbar__server_loading_time">
+    Server: <?= $serverLoadingTime ?>ms
+  </div>
+
+  <div id="sherpa_dev_toolbar__client_loading_time">
+    Client: <?= $clientLoadingTime ?>ms
   </div>
 
 </div>
