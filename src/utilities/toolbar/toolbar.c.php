@@ -1,14 +1,34 @@
 <div id="sherpa_dev_toolbar" sherpa-utilities>
 
   <div id="sherpa_dev_toolbar__server_loading_time">
-    Server: <?= $serverLoadingTime ?>ms
+    Server: <span><?= $serverLoadingTime ?></span>ms
   </div>
 
   <div id="sherpa_dev_toolbar__client_loading_time">
-    Client: <?= $clientLoadingTime ?>ms
+    Client: <span>--</span>ms
   </div>
 
 </div>
+
+
+<script>
+
+  let startLoadingTime,
+      endLoadingTime;
+
+  window.addEventListener("load", () => {
+      setTimeout(() => {
+          let [navigationEntry] = performance.getEntriesByType("navigation"),
+              loadingTime = navigationEntry.loadEventEnd - navigationEntry.startTime;
+
+          console.log("Page loading time = " + loadingTime);
+
+          document.querySelector("#sherpa_dev_toolbar__client_loading_time > span")
+              .innerText = loadingTime;
+      }, 0);
+  });
+
+</script>
 
 
 <style>
