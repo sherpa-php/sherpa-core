@@ -80,11 +80,7 @@ class Router
                 return false;
             }
 
-            $preparedPath = str_replace('/',
-                                        '\/',
-                                        $route->getPreparedPath());
-
-            return preg_match('/' . $preparedPath . '/', "/$path")
+            return preg_match('/' . $route->getPreparedPath() . '/', "/$path")
                 && $route->getHttpMethod() === $httpMethod;
         });
 
