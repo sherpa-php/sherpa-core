@@ -94,9 +94,9 @@ class Route
     }
 
     /**
-     * @return string Route name
+     * @return string|null Route name
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
