@@ -55,12 +55,10 @@ class Route
      */
     public function name(string $name): Route
     {
-        if (Router::getRouteByName($name) !== null)
+        if (Router::getRouteByName($name) === null)
         {
-            throw new NameIsAlreadyUsedException();
+            $this->name = $name;
         }
-
-        $this->name = $name;
 
         return $this;
     }
