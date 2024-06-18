@@ -76,6 +76,25 @@ class Router
     }
 
     /**
+     * Search and return last route using given name
+     *
+     * @param string $name
+     * @return Route|null Route object or null
+     *                    if none has given name
+     * @throws InvalidHttpMethodException
+     */
+    public static function getRouteByName(string $name): ?Route
+    {
+        $routeFilter = array_filter(self::getRoutes(), function ($route) use ($name)
+        {
+            return $route->getName() === $name
+                && $route->getHttpMethod() === Router::getHttpMethod();
+        });
+
+        return end($routeFilter) ?: null;
+    }
+
+    /**
      * @return HttpMethod Current request HTTP method
      * @throws InvalidHttpMethodException If current HTTP method is invalid
      */
