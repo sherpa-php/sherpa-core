@@ -2,6 +2,8 @@
 
 namespace Sherpa\Core\utilities\toolbar;
 
+use Sherpa\Core\router\Route;
+
 class Toolbar
 {
 
@@ -10,7 +12,8 @@ class Toolbar
      *
      * @param float $serverLoadingTime Current page loading time in milliseconds
      */
-    public static function render(float $serverLoadingTime = 0.,
+    public static function render(Route $currentRoute,
+                                  float $serverLoadingTime = 0.,
                                   float $clientLoadingTime = 0.): void
     {
         include "toolbar.c.php";

@@ -8,6 +8,22 @@
     Client: <span>--</span>ms
   </div>
 
+  <div id="sherpa_dev_toolbar__route_path">
+    Path: <?= $currentRoute->getPath() ?>
+  </div>
+
+  <div id="sherpa_dev_toolbar__route_http_method">
+    HTTP method: <?= $currentRoute->getHttpMethod() ?>
+  </div>
+
+  <div id="sherpa_dev_toolbar__route_controller">
+    Controller: <?= $currentRoute->getControllerClass() ?>
+  </div>
+
+  <div id="sherpa_dev_toolbar__route_controller_method">
+    Method: <?= $currentRoute->getControllerMethod() ?>
+  </div>
+
 </div>
 
 
