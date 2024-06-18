@@ -91,7 +91,9 @@ class Router
             return null;
         }
 
-        preg_match_all("/([^\/]+)/", $path, $routeParameters);
+        preg_match_all('/' . $route->getPreparedPath() . '/',
+                       "/$path",
+                       $routeParameters);
 
         unset($routeParameters[0]);  // Remove useless complete matching expressions array
 
