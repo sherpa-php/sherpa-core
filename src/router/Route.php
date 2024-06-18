@@ -50,8 +50,6 @@ class Route
      *
      * @param string $name
      * @return Route
-     * @throws InvalidHttpMethodException
-     * @throws NameIsAlreadyUsedException
      */
     public function name(string $name): Route
     {
