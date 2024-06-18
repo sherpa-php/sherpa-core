@@ -82,9 +82,11 @@ class Route
      */
     public function getPreparedPath(): string
     {
-        return preg_replace("/{([a-z]+)}/",
+        $escapedPath = str_replace('/', '\/', $this->getPath());
+
+        return preg_replace("/\{([a-z]+)}/",
                             "([^\/]+)",
-                            $this->getPath());
+                            $escapedPath);
     }
 
     /**
