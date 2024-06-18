@@ -101,9 +101,9 @@ class Router
             // Remove useless complete matching expressions array
             unset($routeParameters[0]);
 
-            foreach ($routeParameters[1] as $parameter)
+            foreach ($routeParameters as $parameter)
             {
-                $route->addParameter($parameter);
+                $route->addParameter($parameter[0]);
             }
         }
 
