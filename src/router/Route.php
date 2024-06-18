@@ -4,6 +4,7 @@ namespace Sherpa\Core\router;
 
 use Sherpa\Core\controllers\exceptions\ControllerClassOrMethodNotFoundException;
 use Sherpa\Core\router\exceptions\InvalidHttpMethodException;
+use Sherpa\Core\router\exceptions\NameIsAlreadyUsedException;
 use Sherpa\Core\router\exceptions\RouteAndCurrentHttpMethodsDoesNotMatchException;
 
 class Route
@@ -13,6 +14,7 @@ class Route
     private string $path;
     private string $controllerClass;
     private string $controllerMethod;
+    private ?string $name;
 
     public function __construct($httpMethod, $path, $controllerClass, $controllerMethod)
     {
@@ -20,6 +22,7 @@ class Route
         $this->path = $path;
         $this->controllerClass = $controllerClass;
         $this->controllerMethod = $controllerMethod;
+        $this->name = null;
     }
 
     /**
@@ -40,6 +43,26 @@ class Route
 
         $controllerInstance = new ($this->getControllerClass())();
         call_user_func([$controllerInstance, $this->getControllerMethod()], "Hello, World! :)");
+    }
+
+    /**
+     * Rename current route with given name if it is not already used.
+     *
+     * @param string $name
+     * @return Route
+     * @throws InvalidHttpMethodException
+     * @throws NameIsAlreadyUsedException
+     */
+    public function name(string $name): Route
+    {
+        if (Router::getRouteByName($name) !== null)
+        {
+            throw new NameIsAlreadyUsedException();
+        }
+
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -72,6 +95,14 @@ class Route
     public function getControllerMethod(): string
     {
         return $this->controllerMethod;
+    }
+
+    /**
+     * @return string Route name
+     */
+    public function getName(): string
+    {
+        return $this->name;
     }
 
 }
