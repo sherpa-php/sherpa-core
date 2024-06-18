@@ -78,6 +78,16 @@ class Route
     }
 
     /**
+     * @return string Route prepared path
+     */
+    public function getPreparedPath(): string
+    {
+        return preg_replace("/{([a-z]+)}/",
+                            "([^\/]+)",
+                            $this->getPath());
+    }
+
+    /**
      * @return string Route controller class name
      */
     public function getControllerClass(): string
