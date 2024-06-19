@@ -57,6 +57,17 @@ class Request
 
     /**
      * @param string $key Request GET parameter key
+     * @return string|null Parameter value if exists or NULL
+     */
+    public function getParameter(string $key): ?string
+    {
+        return $this->hasParameter($key)
+            ? $this->getParameters()[$key]
+            : null;
+    }
+
+    /**
+     * @param string $key Request GET parameter key
      * @return bool If request has this key as GET parameter key
      */
     public function hasParameter(string $key): bool
@@ -70,6 +81,17 @@ class Request
     public function getInputs(): array
     {
         return $this->inputs;
+    }
+
+    /**
+     * @param string $key Request POST input key
+     * @return mixed Input value if exists or NULL
+     */
+    public function getInput(string $key): mixed
+    {
+        return $this->hasInput($key)
+            ? $this->getInputs()[$key]
+            : null;
     }
 
     /**
