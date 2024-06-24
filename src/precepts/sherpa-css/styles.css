@@ -70,6 +70,16 @@
   font-weight: 100;
   font-style: italic;
 }
+@keyframes slideTop {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 #sherpa_debug_layout {
   position: fixed;
   bottom: 0;
@@ -84,6 +94,10 @@
   border-top-right-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 50px;
+  animation-name: slideTop;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
 #sherpa_debug_layout h1, #sherpa_debug_layout h2, #sherpa_debug_layout h3, #sherpa_debug_layout h4, #sherpa_debug_layout h5, #sherpa_debug_layout h6 {
   font-weight: 900;
