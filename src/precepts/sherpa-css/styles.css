@@ -72,10 +72,16 @@
 }
 #sherpa_debug_layout {
   position: fixed;
-  inset: 0;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 90%;
   background-color: white;
   color: #2d2d2d;
   font-family: "Roboto", sans-serif;
+  border: solid 1px #E6E6E6;
+  border-radius: 50px;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.25);
 }
 
 /*# sourceMappingURL=styles.css.map */
