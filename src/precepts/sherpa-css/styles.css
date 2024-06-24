@@ -75,13 +75,36 @@
   bottom: 0;
   left: 10%;
   right: 10%;
-  height: 90%;
+  height: 80%;
   background-color: white;
   color: #2d2d2d;
   font-family: "Roboto", sans-serif;
   border: solid 1px #E6E6E6;
-  border-radius: 50px;
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.25);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+}
+#sherpa_debug_layout h1, #sherpa_debug_layout h2, #sherpa_debug_layout h3, #sherpa_debug_layout h4, #sherpa_debug_layout h5, #sherpa_debug_layout h6 {
+  font-weight: 900;
+}
+#sherpa_debug_layout h1 {
+  font-size: 3rem;
+}
+#sherpa_debug_layout h2 {
+  font-size: 2.5rem;
+}
+#sherpa_debug_layout h3 {
+  font-size: 2rem;
+}
+#sherpa_debug_layout h4 {
+  font-size: 1.75rem;
+}
+#sherpa_debug_layout h5 {
+  font-size: 1.5rem;
+}
+#sherpa_debug_layout h6 {
+  font-size: 1.25rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
