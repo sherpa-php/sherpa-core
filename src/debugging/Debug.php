@@ -40,7 +40,7 @@ class Debug
     {
         echo "<style>";
 
-        include_once ROOT . "/vendor/sherpa/core/src/precepts/sherpa-css/styles.css";
+        include_once __DIR__ . "/../precepts/sherpa-css/styles.css";
 
         echo "</style>";
     }
