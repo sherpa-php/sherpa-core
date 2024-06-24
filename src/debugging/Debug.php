@@ -28,6 +28,9 @@ class Debug
         die;
     }
 
+    /**
+     * Load debug UI CSS stylesheet into a style tag.
+     */
     private static function loadCss(): void
     {
         echo "<style>";
