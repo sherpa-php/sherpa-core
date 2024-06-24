@@ -16,7 +16,7 @@ class Debug
 
         echo "
         <div id='sherpa_debug_layout'>
-          Hello, World! :)
+          <h1 style='margin-top: 0;'>Debug</h1>
         </div>
         ";
     }
