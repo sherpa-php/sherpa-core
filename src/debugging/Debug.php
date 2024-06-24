@@ -13,7 +13,12 @@ class Debug
     public static function dump(mixed ...$values): void
     {
         self::loadCss();
-        echo self::DUMP_TEMPLATE;
+
+        echo "
+        <div id='sherpa_debug_layout'>
+          Hello, World! :)
+        </div>
+        ";
     }
 
     /**
