@@ -5,13 +5,6 @@ namespace Sherpa\Core\debugging;
 class Debug
 {
 
-    private const DUMP_TEMPLATE = "
-    <link rel='stylesheet' href='../precepts/sherpa-css/styles.css' />
-    <div id='sherpa_debug_layout'>
-        Hello! :D
-    </div>
-    ";
-
     /**
      * Dump given values.
      *
@@ -19,6 +12,7 @@ class Debug
      */
     public static function dump(mixed ...$values): void
     {
+        self::loadCss();
         echo self::DUMP_TEMPLATE;
     }
 
@@ -32,6 +26,15 @@ class Debug
     {
         self::dump(...$values);
         die;
+    }
+
+    private static function loadCss(): void
+    {
+        echo "<style>";
+
+        include_once ROOT . "/vendor/sherpa/core/src/precepts/sherpa-css/styles.css";
+
+        echo "</style>";
     }
 
 }
