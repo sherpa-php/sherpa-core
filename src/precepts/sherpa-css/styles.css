@@ -96,7 +96,7 @@
   padding: 50px;
   animation-name: slideTop;
   animation-delay: 0s;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
 }
 #sherpa_debug_layout h1, #sherpa_debug_layout h2, #sherpa_debug_layout h3, #sherpa_debug_layout h4, #sherpa_debug_layout h5, #sherpa_debug_layout h6 {
