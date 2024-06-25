@@ -80,7 +80,7 @@
     opacity: 1;
   }
 }
-#sherpa_debug_layout {
+[sherpa-ui^=fluid] {
   position: fixed;
   bottom: 0;
   left: 10%;
@@ -93,31 +93,34 @@
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 50px;
   animation-name: slideTop;
   animation-delay: 0s;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
 }
-#sherpa_debug_layout h1, #sherpa_debug_layout h2, #sherpa_debug_layout h3, #sherpa_debug_layout h4, #sherpa_debug_layout h5, #sherpa_debug_layout h6 {
+[sherpa-ui^=fluid][sherpa-ui~=warning] {
+  border-color: rgb(250, 165, 0);
+  box-shadow: 0 0 10px rgba(250, 165, 0, 0.1);
+}
+[sherpa-ui^=fluid] h1, [sherpa-ui^=fluid] h2, [sherpa-ui^=fluid] h3, [sherpa-ui^=fluid] h4, [sherpa-ui^=fluid] h5, [sherpa-ui^=fluid] h6 {
   font-weight: 900;
 }
-#sherpa_debug_layout h1 {
+[sherpa-ui^=fluid] h1 {
   font-size: 3rem;
 }
-#sherpa_debug_layout h2 {
+[sherpa-ui^=fluid] h2 {
   font-size: 2.5rem;
 }
-#sherpa_debug_layout h3 {
+[sherpa-ui^=fluid] h3 {
   font-size: 2rem;
 }
-#sherpa_debug_layout h4 {
+[sherpa-ui^=fluid] h4 {
   font-size: 1.75rem;
 }
-#sherpa_debug_layout h5 {
+[sherpa-ui^=fluid] h5 {
   font-size: 1.5rem;
 }
-#sherpa_debug_layout h6 {
+[sherpa-ui^=fluid] h6 {
   font-size: 1.25rem;
 }
 

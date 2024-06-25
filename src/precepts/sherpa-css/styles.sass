@@ -1,7 +1,9 @@
 @import "fonts"
 @import "animations"
 
-#sherpa_debug_layout
+$warning-border-color: rgb(250, 165, 0)
+
+[sherpa-ui^="fluid"]
   position: fixed
   bottom: 0
   left: 10%
@@ -20,12 +22,15 @@
 
   box-shadow: 0 0 10px rgba(0 0 0 / .1)
 
-  padding: 50px
-
   animation-name: slideTop
   animation-delay: 0s
   animation-duration: .5s
   animation-timing-function: ease-in-out
+
+  &[sherpa-ui~="warning"]
+    border-color: $warning-border-color
+    box-shadow: 0 0 10px rgba($warning-border-color, .1)
+
 
   h1, h2, h3, h4, h5, h6
     font-weight: 900
