@@ -97,6 +97,7 @@
   animation-delay: 0s;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
+  padding: 50px;
 }
 [sherpa-ui^=fluid][sherpa-ui~=warning] {
   border-color: rgb(250, 165, 0);
