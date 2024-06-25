@@ -1,9 +1,10 @@
 @import "fonts"
 @import "animations"
 
-$warning-border-color: rgb(250, 165, 0)
+$warning-color: rgb(250, 165, 0)
+$info-color: rgb(0, 175, 250)
 
-[sherpa-ui^="fluid"]
+[sherpa-ui~="fluid"]
   position: fixed
   bottom: 0
   left: 10%
@@ -29,9 +30,16 @@ $warning-border-color: rgb(250, 165, 0)
 
   padding: 50px
 
+  overflow-x: hidden
+  overflow-y: auto
+
   &[sherpa-ui~="warning"]
-    border-color: $warning-border-color
-    box-shadow: 0 0 10px rgba($warning-border-color, .1)
+    border: solid 1px $warning-color
+    box-shadow: 0 0 10px rgba($warning-color, .1)
+
+  &[sherpa-ui~="info"]
+    border: solid 1px $info-color
+    box-shadow: 0 0 10px rgba($info-color, .1)
 
 
   h1, h2, h3, h4, h5, h6
