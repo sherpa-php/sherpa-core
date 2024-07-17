@@ -87,8 +87,7 @@
   font-size: 1.15rem;
   line-height: 1.5;
   border: solid 1px #E6E6E6;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   animation-name: slideTop;
   animation-delay: 0s;
@@ -105,6 +104,8 @@
   left: 10%;
   right: 10%;
   height: 80%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 [sherpa-ui~=fluid][sherpa-ui~=warning] {
   border: solid 1px rgb(250, 165, 0);
