@@ -69,11 +69,11 @@ class Debug
         echo "</style>";
     }
 
-    private static function getDump(mixed ...$values): string
+    private static function getDump(bool $intoFluid = true, mixed ...$values): string
     {
         $dump = "";
 
-        foreach ($values as $value)
+        foreach ($values as $valueName => $value)
         {
             $valueType = gettype($value);
 
@@ -81,10 +81,14 @@ class Debug
             var_dump($value);
             $valueDump = ob_get_clean();
 
+            $additionalSherpaProperty = $intoFluid
+                ? " info"
+                : "";
+
             $dump .= "
-            <div sherpa-ui='card'>
+            <div sherpa-ui='card$additionalSherpaProperty'>
               <p>
-                <span class='value-type'>$valueType</span>
+                <span class='value-type font-mono'>$valueName</span>
               </p>
               
               <pre>$valueDump</pre>
