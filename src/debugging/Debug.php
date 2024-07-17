@@ -15,6 +15,7 @@ class Debug
         self::loadCss();
 
         $file = __FILE__;
+        $line = __LINE__;
 
         echo "
         <div sherpa-ui='fluid'>
@@ -25,7 +26,8 @@ class Debug
           <ul class='no-list-style'>
             <li>
               <strong>File:</strong>
-              <span class='font-mono code-block'>$file</span>
+              <span class='font-mono code-quote'>$file</span>
+            </li>
             </li>
           </ul>
         </div>
