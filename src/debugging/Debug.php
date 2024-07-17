@@ -14,7 +14,7 @@ class Debug
     {
         self::loadCss();
 
-        echo self::getDump(...$values);
+        echo self::getDump(false, ...$values);
     }
 
     /**
@@ -30,7 +30,7 @@ class Debug
         $file = __FILE__;
         $line = __LINE__;
 
-        $dump = self::getDump(...$values);
+        $dump = self::getDump(true, ...$values);
 
         echo "
         <div sherpa-ui='fluid'>
