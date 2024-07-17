@@ -88,7 +88,7 @@ class Debug
             $dump .= "
             <div sherpa-ui='card$additionalSherpaProperty'>
               <p>
-                <span class='value-type font-mono'>$valueName</span>
+                <span class='value-name font-mono'>[$valueName]</span>
               </p>
               
               <pre>$valueDump</pre>
