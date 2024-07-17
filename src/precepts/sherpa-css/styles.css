@@ -150,7 +150,7 @@
   font-family: monospace;
 }
 [sherpa-ui~=fluid] ul.no-list-style {
-  list-style: none inside;
+  list-style: none;
   padding: 0;
 }
 
