@@ -14,9 +14,6 @@ class Debug
     {
         self::loadCss();
 
-        $file = __FILE__;
-        $line = __LINE__;
-
         echo self::getDump(...$values);
     }
 
@@ -29,6 +26,9 @@ class Debug
     public static function dd(mixed ...$values): void
     {
         self::loadCss();
+
+        $file = __FILE__;
+        $line = __LINE__;
 
         $dump = self::getDump(...$values);
 
