@@ -15,7 +15,7 @@ class Debug
         self::loadCss();
 
         echo "
-        <div sherpa-ui='fluid debug'>
+        <div sherpa-ui='fluid'>
           <header>
             <h1 style='margin-top: 0;'>Debug</h1>
           </header>
