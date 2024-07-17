@@ -155,7 +155,7 @@
 }
 [sherpa-ui~=fluid] ul.no-list-style {
   list-style: none;
-  padding: 0;
+  padding: 0 0 20px;
 }
 
 [sherpa-ui~=card] {
