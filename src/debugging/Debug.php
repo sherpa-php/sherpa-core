@@ -17,25 +17,7 @@ class Debug
         $file = __FILE__;
         $line = __LINE__;
 
-        echo "
-        <div sherpa-ui='fluid'>
-          <header>
-            <h1 style='margin-top: 0;'>Debug</h1>
-          </header>
-          
-          <ul class='no-list-style'>
-            <li>
-              <strong>File:</strong>
-              <span class='font-mono code-quote'>$file</span>
-            </li>
-            
-            <li>
-              <strong>Line:</strong>
-              <span class='font-mono code-quote'>$line</span>
-            </li>
-          </ul>
-        </div>
-        ";
+        echo self::getDump(...$values);
     }
 
     /**
@@ -46,7 +28,32 @@ class Debug
      */
     public static function dd(mixed ...$values): void
     {
-        self::dump(...$values);
+        self::loadCss();
+
+        $dump = self::getDump(...$values);
+
+        echo "
+        <div sherpa-ui='fluid'>
+          <header class='border-bottom'>
+            <h1 style='margin-top: 0;'>Debug</h1>
+          </header>
+          
+          <ul class='no-list-style border-bottom'>
+            <li>
+              <strong>File:</strong>
+              <span class='font-mono code-quote'>$file</span>
+            </li>
+            
+            <li>
+              <strong>Line:</strong>
+              <span class='font-mono code-quote'>$line</span>
+            </li>
+          </ul>
+          
+          $dump
+        </div>
+        ";
+
         die;
     }
 
@@ -60,6 +67,28 @@ class Debug
         include_once __DIR__ . "/../precepts/sherpa-css/styles.css";
 
         echo "</style>";
+    }
+
+    private static function getDump(mixed ...$values): string
+    {
+        $dump = "";
+
+        foreach ($values as $value)
+        {
+            $valueType = gettype($value);
+
+            $dump .= "
+            <div class='dump-container'>
+              <p>
+                <span class='value-type'>$valueType</span>
+              </p>
+              
+              $value
+            </div>
+            ";
+        }
+
+        return $dump;
     }
 
 }
