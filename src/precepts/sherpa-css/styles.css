@@ -123,6 +123,16 @@
 [sherpa-ui~=fluid] .border-bottom {
   border-bottom: solid 1px #E6E6E6;
 }
+[sherpa-ui~=fluid]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  aspect-ratio: 1;
+  width: 100px;
+  background: url("../sherpa-branding/logo-with-name.png") cover/center no-repeat;
+}
 [sherpa-ui~=fluid] h1, [sherpa-ui~=fluid] h2, [sherpa-ui~=fluid] h3, [sherpa-ui~=fluid] h4, [sherpa-ui~=fluid] h5, [sherpa-ui~=fluid] h6 {
   font-weight: 900;
 }
