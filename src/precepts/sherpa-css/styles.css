@@ -139,5 +139,14 @@
 [sherpa-ui~=fluid] h6 {
   font-size: 1.25rem;
 }
+[sherpa-ui~=fluid] span.code-quote {
+  padding: 1px;
+  border: solid 1px #CCCCCC;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+}
+[sherpa-ui~=fluid] span.font-mono {
+  font-family: monospace;
+}
 
 /*# sourceMappingURL=styles.css.map */
