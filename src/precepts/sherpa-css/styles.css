@@ -117,7 +117,7 @@
 [sherpa-ui~=fluid][sherpa-ui~=info] h1, [sherpa-ui~=fluid][sherpa-ui~=info] h2, [sherpa-ui~=fluid][sherpa-ui~=info] h3, [sherpa-ui~=fluid][sherpa-ui~=info] h4, [sherpa-ui~=fluid][sherpa-ui~=info] h5, [sherpa-ui~=fluid][sherpa-ui~=info] h6 {
   color: rgb(0, 175, 250);
 }
-[sherpa-ui~=fluid] > header {
+[sherpa-ui~=fluid] .border-bottom {
   border-bottom: solid 1px #E6E6E6;
 }
 [sherpa-ui~=fluid] h1, [sherpa-ui~=fluid] h2, [sherpa-ui~=fluid] h3, [sherpa-ui~=fluid] h4, [sherpa-ui~=fluid] h5, [sherpa-ui~=fluid] h6 {
