@@ -87,9 +87,7 @@ class Debug
                 <span class='value-type'>$valueType</span>
               </p>
               
-              <pre>
-                $valueDump
-              </pre>
+              <pre>$valueDump</pre>
             </div>
             ";
         }
