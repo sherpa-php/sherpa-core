@@ -28,6 +28,10 @@ class Debug
               <strong>File:</strong>
               <span class='font-mono code-quote'>$file</span>
             </li>
+            
+            <li>
+              <strong>Line:</strong>
+              <span class='font-mono code-quote'>$line</span>
             </li>
           </ul>
         </div>
