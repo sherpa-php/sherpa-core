@@ -22,10 +22,10 @@ class Debug
             <h1 style='margin-top: 0;'>Debug</h1>
           </header>
           
-          <ul>
+          <ul class='no-list-style'>
             <li>
               <strong>File:</strong>
-              $file
+              <span class='font-mono code-block'>$file</span>
             </li>
           </ul>
         </div>
