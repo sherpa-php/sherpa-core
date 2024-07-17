@@ -16,7 +16,9 @@ class Debug
 
         echo "
         <div sherpa-ui='fluid debug'>
-          <h1 style='margin-top: 0;'>Debug</h1>
+          <header>
+            <h1 style='margin-top: 0;'>Debug</h1>
+          </header>
         </div>
         ";
     }
