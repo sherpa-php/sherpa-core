@@ -162,6 +162,14 @@
   border-radius: 10px;
   padding: 20px;
 }
+[sherpa-ui~=card][sherpa-ui~=warning] {
+  border: solid 1px rgb(250, 165, 0);
+  box-shadow: 0 0 10px rgba(250, 165, 0, 0.3);
+}
+[sherpa-ui~=card][sherpa-ui~=info] {
+  border: solid 1px rgb(0, 175, 250);
+  box-shadow: 0 0 10px rgba(0, 175, 250, 0.3);
+}
 [sherpa-ui~=card]:not(:last-child) {
   margin-bottom: 30px;
 }

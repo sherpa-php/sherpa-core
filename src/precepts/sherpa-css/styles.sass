@@ -100,6 +100,14 @@ $info-color: rgb(0, 175, 250)
 
   padding: 20px
 
+  &[sherpa-ui~="warning"]
+    border: solid 1px $warning-color
+    box-shadow: 0 0 10px rgba($warning-color, .3)
+
+  &[sherpa-ui~="info"]
+    border: solid 1px $info-color
+    box-shadow: 0 0 10px rgba($info-color, .3)
+
   &:not(:last-child)
     margin-bottom: 30px
 
