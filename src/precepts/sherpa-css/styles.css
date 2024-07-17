@@ -169,9 +169,10 @@
   margin-top: 0;
   margin-bottom: 10px;
 }
-[sherpa-ui~=card] > p > span.value-type {
+[sherpa-ui~=card] > p > span.value-name {
   font-weight: bold;
   color: #006fff;
+  font-size: 1rem;
 }
 [sherpa-ui~=card] > pre {
   margin-bottom: 0;
