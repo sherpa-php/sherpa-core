@@ -80,12 +80,7 @@
     opacity: 1;
   }
 }
-[sherpa-ui~=fluid] {
-  position: fixed;
-  bottom: 0;
-  left: 10%;
-  right: 10%;
-  height: 80%;
+[sherpa-ui~=fluid], [sherpa-ui~=card] {
   background-color: white;
   color: #2d2d2d;
   font-family: "Roboto", sans-serif;
@@ -102,6 +97,14 @@
   padding: 50px;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+[sherpa-ui~=fluid] {
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 80%;
 }
 [sherpa-ui~=fluid][sherpa-ui~=warning] {
   border: solid 1px rgb(250, 165, 0);
@@ -153,6 +156,17 @@
 [sherpa-ui~=fluid] ul.no-list-style {
   list-style: none;
   padding: 0;
+}
+
+[sherpa-ui~=card]:not(:last-child) {
+  margin-bottom: 30px;
+}
+[sherpa-ui~=card] > p {
+  margin-bottom: 10px;
+}
+[sherpa-ui~=card] > p > span.value-type {
+  font-weight: bold;
+  color: #006fff;
 }
 
 /*# sourceMappingURL=styles.css.map */

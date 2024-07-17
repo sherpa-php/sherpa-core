@@ -4,14 +4,7 @@
 $warning-color: rgb(250, 165, 0)
 $info-color: rgb(0, 175, 250)
 
-[sherpa-ui~="fluid"]
-  position: fixed
-  bottom: 0
-  left: 10%
-  right: 10%
-
-  height: 80%
-
+[sherpa-ui~="fluid"], [sherpa-ui~="card"]
   background-color: white
 
   color: #2d2d2d
@@ -34,6 +27,15 @@ $info-color: rgb(0, 175, 250)
 
   overflow-x: hidden
   overflow-y: auto
+
+
+[sherpa-ui~="fluid"]
+  position: fixed
+  bottom: 0
+  left: 10%
+  right: 10%
+
+  height: 80%
 
   &[sherpa-ui~="warning"]
     border: solid 1px $warning-color
@@ -90,3 +92,15 @@ $info-color: rgb(0, 175, 250)
     list-style: none
 
     padding: 0
+
+
+[sherpa-ui~="card"]
+  &:not(:last-child)
+    margin-bottom: 30px
+
+  > p
+    margin-bottom: 10px
+
+    > span.value-type
+      font-weight: bold
+      color: #006fff
