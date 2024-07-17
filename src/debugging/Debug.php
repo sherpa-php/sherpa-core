@@ -77,13 +77,19 @@ class Debug
         {
             $valueType = gettype($value);
 
+            ob_start();
+            var_dump($value);
+            $valueDump = ob_get_clean();
+
             $dump .= "
-            <div class='dump-container'>
+            <div sherpa-ui='card'>
               <p>
                 <span class='value-type'>$valueType</span>
               </p>
               
-              $value
+              <pre>
+                $valueDump
+              </pre>
             </div>
             ";
         }
