@@ -14,11 +14,20 @@ class Debug
     {
         self::loadCss();
 
+        $file = __FILE__;
+
         echo "
         <div sherpa-ui='fluid'>
           <header>
             <h1 style='margin-top: 0;'>Debug</h1>
           </header>
+          
+          <ul>
+            <li>
+              <strong>File:</strong>
+              $file
+            </li>
+          </ul>
         </div>
         ";
     }
