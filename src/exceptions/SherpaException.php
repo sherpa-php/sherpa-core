@@ -7,6 +7,8 @@ use Sherpa\Core\debugging\Debug;
 
 class SherpaException extends Exception
 {
+    protected $message = "A Sherpa exception occurred…";
+
     public function __construct()
     {
         $this->render();
