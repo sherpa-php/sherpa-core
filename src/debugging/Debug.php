@@ -32,7 +32,12 @@ class Debug
 
         $dump = self::getDump(true, ...$values);
 
-        self::render($file, $line, "Debug", DebugType::MESSAGE, $dump);
+        self::render($file,
+                     $line,
+                     "Debug",
+                     DebugType::MESSAGE,
+                     [],
+                     $dump);
     }
 
     public static function error(SherpaException $exception): void
@@ -55,7 +60,12 @@ class Debug
         </p>
         ";
 
-        self::render($file, $line, "Exception", DebugType::ERROR, [], "");
+        self::render($file,
+                     $line,
+                     "Exception",
+                     DebugType::ERROR,
+                     $additionalProperties,
+                     $slot);
     }
 
     private static function render(
