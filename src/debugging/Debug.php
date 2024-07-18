@@ -40,6 +40,21 @@ class Debug
         $file = __FILE__;
         $line = __LINE__;
 
+        $additionalProperties = [
+            "Exception" => get_class($exception),
+            "Return HTTP code" => $exception->getCode(),
+        ];
+
+        $slot = "
+        <div class='code-block font-mono'>
+          <p>Thrown at {$exception->getFile()} : {$exception->getLine()}</p>
+        </div>
+
+        <p>
+          {$exception->getMessage()}
+        </p>
+        ";
+
         self::render($file, $line, "Exception", DebugType::ERROR, "");
     }
 
@@ -48,6 +63,7 @@ class Debug
         int $line,
         string $title,
         DebugType $type,
+        array $additionalProperties = [],
         string $slot = ""): void
     {
         self::loadCss();
@@ -59,6 +75,18 @@ class Debug
             DebugType::ERROR        => " error",
             default                 => "",
         };
+
+        $additionalPropertiesSlot = "";
+
+        foreach ($additionalProperties as $propertyKey => $property)
+        {
+            $additionalPropertiesSlot .= "
+            <li>
+              <strong>$propertyKey:</strong>
+              <span class='font-mono code-quote'>$property</span>
+            </li>
+            ";
+        }
 
         echo "
         <div sherpa-ui='fluid$debugType'>
@@ -76,6 +104,8 @@ class Debug
               <strong>Line:</strong>
               <span class='font-mono code-quote'>$line</span>
             </li>
+            
+            $additionalPropertiesSlot
           </ul>
           
           $slot
