@@ -16,7 +16,7 @@ class Debug
     {
         self::loadCss();
 
-        echo self::getDump(false, ...$values);
+        echo self::getDump($values, intoFluid: false);
     }
 
     /**
@@ -30,7 +30,7 @@ class Debug
         $file = __FILE__;
         $line = __LINE__;
 
-        $dump = self::getDump(true, ...$values);
+        $dump = self::getDump($values, intoFluid: true);
 
         self::render($file,
                      $line,
@@ -141,10 +141,10 @@ class Debug
     }
 
     private static function getDump(
+        array $values,
         ?string $file = null,
         ?int $line = null,
-        bool $intoFluid = true,
-        mixed ...$values): string
+        bool $intoFluid = true): string
     {
         $dump = "";
 
