@@ -46,8 +46,8 @@ class Debug
         $line = __LINE__;
 
         $additionalProperties = [
-            "Exception" => get_class($exception),
-            "Return HTTP code" => $exception->getCode(),
+            "Exception class" => get_class($exception),
+            "Exception code" => $exception->getCode(),
         ];
 
         $slot = "
