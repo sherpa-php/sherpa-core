@@ -2,9 +2,9 @@
 
 namespace Sherpa\Core\router\exceptions;
 
-use Exception;
+use Sherpa\Core\exceptions\SherpaException;
 
-class InvalidHttpMethodException extends Exception
+class InvalidHttpMethodException extends SherpaException
 {
 
 }

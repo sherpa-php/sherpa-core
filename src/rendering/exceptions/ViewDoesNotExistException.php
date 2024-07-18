@@ -2,9 +2,9 @@
 
 namespace Sherpa\Core\rendering\exceptions;
 
-use Exception;
+use Sherpa\Core\exceptions\SherpaException;
 
-class ViewDoesNotExistException extends Exception
+class ViewDoesNotExistException extends SherpaException
 {
 
 }

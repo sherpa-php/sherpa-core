@@ -2,9 +2,9 @@
 
 namespace Sherpa\Core\router\exceptions;
 
-use Exception;
+use Sherpa\Core\exceptions\SherpaException;
 
-class RouteAndCurrentHttpMethodsDoesNotMatchException extends Exception
+class RouteAndCurrentHttpMethodsDoesNotMatchException extends SherpaException
 {
 
 }

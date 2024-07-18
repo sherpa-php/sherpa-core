@@ -2,9 +2,9 @@
 
 namespace Sherpa\Core\controllers\exceptions;
 
-use Exception;
+use Sherpa\Core\exceptions\SherpaException;
 
-class ControllerClassOrMethodNotFoundException extends Exception
+class ControllerClassOrMethodNotFoundException extends SherpaException
 {
 
 }
