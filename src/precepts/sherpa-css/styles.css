@@ -151,8 +151,13 @@
 [sherpa-ui~=fluid] h6 {
   font-size: 1.25rem;
 }
-[sherpa-ui~=fluid] .code-quote {
+[sherpa-ui~=fluid] span.code-quote {
   padding: 1px;
+}
+[sherpa-ui~=fluid] div.code-quote {
+  padding: 1px 5px;
+}
+[sherpa-ui~=fluid] .code-quote {
   border: solid 1px #CCCCCC;
   border-radius: 5px;
   background-color: #E6E6E6;
