@@ -81,12 +81,8 @@ class Debug
             var_dump($value);
             $valueDump = ob_get_clean();
 
-            $additionalSherpaProperty = $intoFluid
-                ? " info"
-                : "";
-
             $dump .= "
-            <div sherpa-ui='card$additionalSherpaProperty'>
+            <div sherpa-ui='card info'>
               <p>
                 <span class='value-name font-mono'>[$valueName]</span>
               </p>
