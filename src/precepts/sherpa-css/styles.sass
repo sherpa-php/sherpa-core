@@ -3,6 +3,7 @@
 
 $warning-color: rgb(250, 165, 0)
 $info-color: rgb(0, 175, 250)
+$error-color: rgb(255, 17, 17)
 
 [sherpa-ui~="fluid"], [sherpa-ui~="card"]
   background-color: white
@@ -51,6 +52,13 @@ $info-color: rgb(0, 175, 250)
 
     h1, h2, h3, h4, h5, h6
       color: $info-color
+
+  &[sherpa-ui~="error"]
+    border: solid 1px $error-color
+    box-shadow: 0 0 10px rgba($error-color, .3)
+
+    h1, h2, h3, h4, h5, h6
+      color: $error-color
 
 
   .border-bottom
@@ -107,6 +115,10 @@ $info-color: rgb(0, 175, 250)
   &[sherpa-ui~="info"]
     border: solid 1px $info-color
     box-shadow: 0 0 10px rgba($info-color, .3)
+
+  &[sherpa-ui~="error"]
+    border: solid 1px $error-color
+    box-shadow: 0 0 10px rgba($error-color, .3)
 
   &:not(:last-child)
     margin-bottom: 30px

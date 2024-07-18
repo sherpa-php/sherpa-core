@@ -120,6 +120,13 @@
 [sherpa-ui~=fluid][sherpa-ui~=info] h1, [sherpa-ui~=fluid][sherpa-ui~=info] h2, [sherpa-ui~=fluid][sherpa-ui~=info] h3, [sherpa-ui~=fluid][sherpa-ui~=info] h4, [sherpa-ui~=fluid][sherpa-ui~=info] h5, [sherpa-ui~=fluid][sherpa-ui~=info] h6 {
   color: rgb(0, 175, 250);
 }
+[sherpa-ui~=fluid][sherpa-ui~=error] {
+  border: solid 1px rgb(255, 17, 17);
+  box-shadow: 0 0 10px rgba(255, 17, 17, 0.3);
+}
+[sherpa-ui~=fluid][sherpa-ui~=error] h1, [sherpa-ui~=fluid][sherpa-ui~=error] h2, [sherpa-ui~=fluid][sherpa-ui~=error] h3, [sherpa-ui~=fluid][sherpa-ui~=error] h4, [sherpa-ui~=fluid][sherpa-ui~=error] h5, [sherpa-ui~=fluid][sherpa-ui~=error] h6 {
+  color: rgb(255, 17, 17);
+}
 [sherpa-ui~=fluid] .border-bottom {
   border-bottom: solid 1px #E6E6E6;
 }
@@ -169,6 +176,10 @@
 [sherpa-ui~=card][sherpa-ui~=info] {
   border: solid 1px rgb(0, 175, 250);
   box-shadow: 0 0 10px rgba(0, 175, 250, 0.3);
+}
+[sherpa-ui~=card][sherpa-ui~=error] {
+  border: solid 1px rgb(255, 17, 17);
+  box-shadow: 0 0 10px rgba(255, 17, 17, 0.3);
 }
 [sherpa-ui~=card]:not(:last-child) {
   margin-bottom: 30px;
