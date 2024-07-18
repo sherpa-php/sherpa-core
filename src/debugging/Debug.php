@@ -2,6 +2,8 @@
 
 namespace Sherpa\Core\debugging;
 
+use Sherpa\Core\exceptions\SherpaException;
+
 class Debug
 {
 
@@ -25,17 +27,35 @@ class Debug
      */
     public static function dd(mixed ...$values): void
     {
+        $dump = self::getDump(true, ...$values);
+
+        self::render("Debug", DebugType::MESSAGE, $dump);
+    }
+
+    public static function error(SherpaException $exception): void
+    {
+        self::render("Exception", DebugType::ERROR, "");
+    }
+
+    private static function render(string $title, DebugType $type, string $slot = ""): void
+    {
         self::loadCss();
+
+        $debugType = match ($type)
+        {
+            DebugType::INFORMATION  => " info",
+            DebugType::WARNING      => " warning",
+            DebugType::ERROR        => " error",
+            default                 => "",
+        };
 
         $file = __FILE__;
         $line = __LINE__;
 
-        $dump = self::getDump(true, ...$values);
-
         echo "
-        <div sherpa-ui='fluid'>
+        <div sherpa-ui='fluid$debugType'>
           <header class='border-bottom'>
-            <h1 style='margin-top: 0;'>Debug</h1>
+            <h1 style='margin-top: 0;'>$title</h1>
           </header>
           
           <ul class='no-list-style border-bottom'>
@@ -50,7 +70,7 @@ class Debug
             </li>
           </ul>
           
-          $dump
+          $slot
         </div>
         ";
 
