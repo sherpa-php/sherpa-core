@@ -12,7 +12,7 @@ class InvalidHttpMethodException extends SherpaException
     public function __construct(string $httpMethod)
     {
 
-        parent::__construct();
+        parent::__construct($this);
 
         $this->message = "
         <span class='font-mono code-quote'>$httpMethod</span>

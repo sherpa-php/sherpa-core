@@ -10,13 +10,15 @@ class SherpaException extends Exception
     protected $message = "A Sherpa exception occurred…";
     protected $code = "SHERPA_00";
 
-    public function __construct()
+    public function __construct(SherpaException $exception)
     {
-        $this->render();
+        parent::__construct();
+
+        self::render($exception);
     }
 
-    private function render(): void
+    private static function render(SherpaException $exception): void
     {
-        Debug::error($this);
+        Debug::error($exception);
     }
 }

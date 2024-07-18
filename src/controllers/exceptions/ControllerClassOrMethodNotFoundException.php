@@ -11,7 +11,7 @@ class ControllerClassOrMethodNotFoundException extends SherpaException
 
     public function __construct(string $controller, string $method)
     {
-        parent::__construct();
+        parent::__construct($this);
 
         $this->message = "
         <span class='font-mono code-quote'>$controller</span> 
