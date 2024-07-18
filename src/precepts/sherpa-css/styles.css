@@ -91,6 +91,12 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+[sherpa-ui~=fluid] .text-small, [sherpa-ui~=card] .text-small {
+  font-size: 1rem;
+}
+[sherpa-ui~=fluid] .text-light, [sherpa-ui~=card] .text-light {
+  color: #CCCCCC;
+}
 
 [sherpa-ui~=fluid] {
   position: fixed;
