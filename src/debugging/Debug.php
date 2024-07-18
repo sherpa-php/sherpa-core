@@ -16,7 +16,7 @@ class Debug
     {
         self::loadCss();
 
-        echo self::getDump($values, intoFluid: false);
+        echo self::getDump($values, __FILE__, __LINE__, false);
     }
 
     /**
