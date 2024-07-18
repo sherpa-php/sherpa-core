@@ -34,32 +34,34 @@ $error-color: rgb(255, 17, 17)
 
   height: 80%
 
+  border-width: 1px
+  border-bottom-width: 0
+  border-style: solid
   border-top-left-radius: 30px
   border-top-right-radius: 30px
 
   padding: 50px
 
   &[sherpa-ui~="warning"]
-    border: solid 1px $warning-color
+    border-color: $warning-color
     box-shadow: 0 0 10px rgba($warning-color, .3)
 
     h1, h2, h3, h4, h5, h6
       color: $warning-color
 
   &[sherpa-ui~="info"]
-    border: solid 1px $info-color
+    border-color: $info-color
     box-shadow: 0 0 10px rgba($info-color, .3)
 
     h1, h2, h3, h4, h5, h6
       color: $info-color
 
   &[sherpa-ui~="error"]
-    border: solid 1px $error-color
+    border-color: $error-color
     box-shadow: 0 0 10px rgba($error-color, .3)
 
     h1, h2, h3, h4, h5, h6
       color: $error-color
-
 
   .border-bottom
     border-bottom: solid 1px #E6E6E6
