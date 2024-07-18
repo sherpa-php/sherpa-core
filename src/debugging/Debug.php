@@ -44,7 +44,7 @@ class Debug
     }
 
     private static function render(
-        string $classPath,
+        string $file,
         int $line,
         string $title,
         DebugType $type,
