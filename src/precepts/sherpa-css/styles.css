@@ -155,7 +155,10 @@
   padding: 1px;
 }
 [sherpa-ui~=fluid] div.code-quote {
-  padding: 1px 5px;
+  padding: 20px;
+}
+[sherpa-ui~=fluid] div.code-quote p {
+  margin: 0;
 }
 [sherpa-ui~=fluid] .code-quote {
   border: solid 1px #CCCCCC;
