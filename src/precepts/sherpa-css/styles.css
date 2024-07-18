@@ -88,10 +88,6 @@
   line-height: 1.5;
   border: solid 1px #E6E6E6;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation-name: slideTop;
-  animation-delay: 0s;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -108,6 +104,10 @@
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   padding: 50px;
+  animation-name: slideTop;
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
 }
 [sherpa-ui~=fluid][sherpa-ui~=warning] {
   border-color: rgb(250, 165, 0);
