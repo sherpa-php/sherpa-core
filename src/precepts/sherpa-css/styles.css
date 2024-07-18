@@ -97,6 +97,23 @@
 [sherpa-ui~=fluid] .text-light, [sherpa-ui~=card] .text-light {
   color: #CCCCCC;
 }
+[sherpa-ui~=fluid] span.code-quote, [sherpa-ui~=card] span.code-quote {
+  padding: 1px;
+}
+[sherpa-ui~=fluid] div.code-quote, [sherpa-ui~=card] div.code-quote {
+  padding: 20px;
+}
+[sherpa-ui~=fluid] div.code-quote p, [sherpa-ui~=card] div.code-quote p {
+  margin: 0;
+}
+[sherpa-ui~=fluid] .code-quote, [sherpa-ui~=card] .code-quote {
+  border: solid 1px #CCCCCC;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+}
+[sherpa-ui~=fluid] .font-mono, [sherpa-ui~=card] .font-mono {
+  font-family: monospace;
+}
 
 [sherpa-ui~=fluid] {
   position: fixed;
@@ -158,24 +175,7 @@
   font-size: 1.5rem;
 }
 [sherpa-ui~=fluid] h6 {
-  font-size: 1.25rem;
-}
-[sherpa-ui~=fluid] span.code-quote {
-  padding: 1px;
-}
-[sherpa-ui~=fluid] div.code-quote {
-  padding: 20px;
-}
-[sherpa-ui~=fluid] div.code-quote p {
-  margin: 0;
-}
-[sherpa-ui~=fluid] .code-quote {
-  border: solid 1px #CCCCCC;
-  border-radius: 5px;
-  background-color: #E6E6E6;
-}
-[sherpa-ui~=fluid] .font-mono {
-  font-family: monospace;
+  font-size: 1.25re;
 }
 [sherpa-ui~=fluid] ul.no-list-style {
   list-style: none;
