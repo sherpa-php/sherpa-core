@@ -10,4 +10,9 @@ class RouteAndCurrentHttpMethodsDoesNotMatchException extends SherpaException
     protected $message = "Given route is not defined for current HTTP method.";
     protected $code = "SHERPA_002_RTR";
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
 }
