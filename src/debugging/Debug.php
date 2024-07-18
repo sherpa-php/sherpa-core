@@ -52,7 +52,9 @@ class Debug
 
         $slot = "
         <div class='code-quote font-mono'>
-          <p>Thrown at {$exception->getFile()} : {$exception->getLine()}</p>
+          <p>
+            Thrown at <strong>{$exception->getFile()} : {$exception->getLine()}</strong>
+          </p>
         </div>
 
         <p>
