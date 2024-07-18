@@ -47,30 +47,20 @@ class Debug
 
     public static function error(SherpaException $exception): void
     {
-        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
-        $file = $backtrace[0]["file"];
-        $line = $backtrace[0]["line"];
-
         $additionalProperties = [
             "Exception class" => get_class($exception),
             "Exception code" => $exception->getCode(),
         ];
 
         $slot = "
-        <div class='code-quote font-mono'>
-          <p>
-            Thrown at <strong>{$exception->getFile()}:{$exception->getLine()}</strong>
-          </p>
-        </div>
-
         <p>
           <strong>Message:</strong>
           {$exception->getMessage()}
         </p>
         ";
 
-        self::render($file,
-                     $line,
+        self::render($exception->getFile(),
+                     $exception->getLine(),
                      "Exception",
                      DebugType::ERROR,
                      $additionalProperties,
