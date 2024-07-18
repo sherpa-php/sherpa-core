@@ -58,6 +58,7 @@ class Debug
         </div>
 
         <p>
+          <strong>Message:</strong>
           {$exception->getMessage()}
         </p>
         ";
