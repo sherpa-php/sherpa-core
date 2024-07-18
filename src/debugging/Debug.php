@@ -16,7 +16,11 @@ class Debug
     {
         self::loadCss();
 
-        echo self::getDump($values, __FILE__, __LINE__, false);
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
+        $file = $backtrace[0]["file"];
+        $line = $backtrace[0]["line"];
+
+        echo self::getDump($values, $file, $line, false);
     }
 
     /**
@@ -27,8 +31,9 @@ class Debug
      */
     public static function dd(mixed ...$values): void
     {
-        $file = __FILE__;
-        $line = __LINE__;
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
+        $file = $backtrace[0]["file"];
+        $line = $backtrace[0]["line"];
 
         $dump = self::getDump($values, intoFluid: true);
 
@@ -42,8 +47,9 @@ class Debug
 
     public static function error(SherpaException $exception): void
     {
-        $file = __FILE__;
-        $line = __LINE__;
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
+        $file = $backtrace[0]["file"];
+        $line = $backtrace[0]["line"];
 
         $additionalProperties = [
             "Exception class" => get_class($exception),
