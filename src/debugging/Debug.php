@@ -140,11 +140,15 @@ class Debug
         echo "</style>";
     }
 
-    private static function getDump(bool $intoFluid = true, mixed ...$values): string
+    private static function getDump(
+        ?string $file = null,
+        ?int $line = null,
+        bool $intoFluid = true,
+        mixed ...$values): string
     {
         $dump = "";
 
-        foreach ($values as $valueName => $value)
+        foreach ($values as $valueIndex => $value)
         {
             $valueType = gettype($value);
 
@@ -152,10 +156,21 @@ class Debug
             var_dump($value);
             $valueDump = ob_get_clean();
 
+            $sourceSlot = $file !== null && $line !== null
+                ? "<span class='font-mono text-small text-light'>
+                     $file:$line
+                   </span>"
+                : "";
+
             $dump .= "
             <div sherpa-ui='card info'>
               <p>
-                <span class='value-name font-mono'>[$valueName]</span>
+                <span class='value-name font-mono' 
+                      style='margin-right: 10px;'>
+                      
+                  [$valueIndex]
+                </span>
+                $sourceSlot
               </p>
               
               <pre>$valueDump</pre>
