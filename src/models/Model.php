@@ -6,7 +6,7 @@ class Model
 {
 
     protected static array
-        $public,
-        $private;
+        $public     = [],
+        $private    = [];
 
 }
