@@ -11,12 +11,12 @@ class ViewDoesNotExistException extends SherpaException
 
     public function __construct(string $view)
     {
-        parent::__construct($this);
-
         $this->message = "
         <span class='font-mono code-quote'>$view</span>
         view does no longer exist.
         ";
+
+        parent::__construct($this);
     }
 
 }

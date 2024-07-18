@@ -11,14 +11,12 @@ class InvalidHttpMethodException extends SherpaException
 
     public function __construct(string $httpMethod)
     {
-
-        parent::__construct($this);
-
         $this->message = "
         <span class='font-mono code-quote'>$httpMethod</span>
         HTTP method does no longer exist.
         ";
 
+        parent::__construct($this);
     }
 
 }
