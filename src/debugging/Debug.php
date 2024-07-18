@@ -27,17 +27,28 @@ class Debug
      */
     public static function dd(mixed ...$values): void
     {
+        $file = __FILE__;
+        $line = __LINE__;
+
         $dump = self::getDump(true, ...$values);
 
-        self::render("Debug", DebugType::MESSAGE, $dump);
+        self::render($file, $line, "Debug", DebugType::MESSAGE, $dump);
     }
 
     public static function error(SherpaException $exception): void
     {
-        self::render("Exception", DebugType::ERROR, "");
+        $file = __FILE__;
+        $line = __LINE__;
+
+        self::render($file, $line, "Exception", DebugType::ERROR, "");
     }
 
-    private static function render(string $title, DebugType $type, string $slot = ""): void
+    private static function render(
+        string $classPath,
+        int $line,
+        string $title,
+        DebugType $type,
+        string $slot = ""): void
     {
         self::loadCss();
 
@@ -48,9 +59,6 @@ class Debug
             DebugType::ERROR        => " error",
             default                 => "",
         };
-
-        $file = __FILE__;
-        $line = __LINE__;
 
         echo "
         <div sherpa-ui='fluid$debugType'>
