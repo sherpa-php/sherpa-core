@@ -55,7 +55,7 @@ class Debug
         </p>
         ";
 
-        self::render($file, $line, "Exception", DebugType::ERROR, "");
+        self::render($file, $line, "Exception", DebugType::ERROR, [], "");
     }
 
     private static function render(
