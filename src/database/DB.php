@@ -22,17 +22,7 @@ class DB
         string $password): PDO
     {
 
-        try
-        {
-            $db = new PDO("$dbms:host=$host;port=$port;dbname=$db", $user, $password);
-        }
-        catch (PDOException $exception)
-        {
-            echo "PDO exception: {$exception->getMessage()}";
-            die;
-        }
-
-        return $db;
+        return new PDO("$dbms:host=$host;port=$port;dbname=$db", $user, $password);
 
     }
 
