@@ -2,6 +2,7 @@
 
 namespace Sherpa\Core\utilities\toolbar;
 
+use Sherpa\Core\FrameworkInformation;
 use Sherpa\Core\router\Route;
 
 class Toolbar
@@ -15,6 +16,8 @@ class Toolbar
     public static function render(Route $currentRoute,
                                   float $serverLoadingTime = 0.): void
     {
+        $sherpaVersion = FrameworkInformation::VERSION;
+
         include "toolbar.c.php";
     }
 
