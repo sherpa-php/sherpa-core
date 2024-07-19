@@ -66,7 +66,7 @@ class Debug
 
         self::render($exception->getFile(),
                      $exception->getLine(),
-                     "Exception",
+                     $title,
                      DebugType::ERROR,
                      $additionalProperties,
                      $slot);
