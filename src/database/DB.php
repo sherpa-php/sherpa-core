@@ -13,13 +13,13 @@ class DB
         return new Query($query, $arguments);
     }
 
-    private static function connect(
+    public static function connect(
         string $dbms,
         string $host,
         int $port,
         string $db,
         string $user,
-        string $password)
+        string $password): PDO
     {
 
         try
@@ -31,6 +31,8 @@ class DB
             echo "PDO exception: {$exception->getMessage()}";
             die;
         }
+
+        return $db;
 
     }
 
