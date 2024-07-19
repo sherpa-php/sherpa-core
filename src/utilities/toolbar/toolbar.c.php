@@ -1,5 +1,9 @@
 <div id="sherpa_dev_toolbar" sherpa-utilities>
 
+  <div id="sherpa_dev_toolbar__framework_version">
+    Version: <span><?= $sherpaVersion ?></span>
+  </div>
+
   <div id="sherpa_dev_toolbar__server_loading_time">
     Server: <span><?= $serverLoadingTime ?></span>ms
   </div>
