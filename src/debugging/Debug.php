@@ -2,6 +2,7 @@
 
 namespace Sherpa\Core\debugging;
 
+use Exception;
 use Sherpa\Core\exceptions\SherpaException;
 
 class Debug
@@ -45,8 +46,12 @@ class Debug
                      $dump);
     }
 
-    public static function error(SherpaException $exception): void
+    public static function error(Exception $exception): void
     {
+        $title = SherpaException::isSherpaException($exception)
+            ? "Sherpa Exception"
+            : "Exception";
+
         $additionalProperties = [
             "Exception class" => get_class($exception),
             "Exception code" => $exception->getCode(),
