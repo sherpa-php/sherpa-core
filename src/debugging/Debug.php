@@ -17,9 +17,9 @@ class Debug
     {
         self::loadCss();
 
-        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
-        $file = $backtrace[0]["file"];
-        $line = $backtrace[0]["line"];
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
+        $file = end($backtrace)["file"];
+        $line = end($backtrace)["line"];
 
         echo self::getDump($values, $file, $line, false);
     }
@@ -32,9 +32,9 @@ class Debug
      */
     public static function dd(mixed ...$values): void
     {
-        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1);
-        $file = $backtrace[0]["file"];
-        $line = $backtrace[0]["line"];
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
+        $file = end($backtrace)["file"];
+        $line = end($backtrace)["line"];
 
         $dump = self::getDump($values, intoFluid: true);
 
