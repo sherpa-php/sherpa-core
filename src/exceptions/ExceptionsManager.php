@@ -4,6 +4,7 @@ namespace Sherpa\Core\exceptions;
 
 use Exception;
 use Sherpa\Core\debugging\Debug;
+use Throwable;
 
 class ExceptionsManager
 {
@@ -13,7 +14,7 @@ class ExceptionsManager
      */
     public static function useExceptionHandler(): void
     {
-        set_exception_handler(function (Exception $exception)
+        set_exception_handler(function (Throwable $exception)
         {
             Debug::error($exception);
         });
