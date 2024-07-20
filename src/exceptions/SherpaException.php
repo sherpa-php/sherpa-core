@@ -11,11 +11,11 @@ class SherpaException extends Exception
     protected $message = "A Sherpa exception occurred…";
     protected $code = "SHERPA_00";
 
-    public function __construct(SherpaException $exception)
+    public function __construct()
     {
         parent::__construct();
 
-        self::render($exception);
+        self::render($this);
     }
 
     /**
