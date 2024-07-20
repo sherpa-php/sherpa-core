@@ -2,8 +2,10 @@
 
 namespace Sherpa\Core\debugging;
 
+use Error;
 use Exception;
 use Sherpa\Core\exceptions\SherpaException;
+use Throwable;
 
 class Debug
 {
@@ -46,11 +48,20 @@ class Debug
                      $dump);
     }
 
-    public static function error(Exception $exception): void
+    public static function error(Throwable $exception): void
     {
-        $title = SherpaException::isSherpaException($exception)
-            ? "Sherpa Exception"
-            : "Exception";
+        if (SherpaException::isSherpaException($exception))
+        {
+            $title = "Sherpa Exception";
+        }
+        else if (is_a($exception, Error::class))
+        {
+            $title = "Error";
+        }
+        else
+        {
+            $title = "Exception";
+        }
 
         $additionalProperties = [
             "Exception class" => get_class($exception),

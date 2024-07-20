@@ -4,6 +4,7 @@ namespace Sherpa\Core\exceptions;
 
 use Exception;
 use Sherpa\Core\debugging\Debug;
+use Throwable;
 
 class SherpaException extends Exception
 {
@@ -32,7 +33,7 @@ class SherpaException extends Exception
      * @return bool If given exception is inherited or an object
      *              of SherpaException class
      */
-    public static function isSherpaException(Exception $exception): bool
+    public static function isSherpaException(Throwable $exception): bool
     {
         return is_a($exception, self::class);
     }
