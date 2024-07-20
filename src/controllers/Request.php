@@ -2,8 +2,14 @@
 
 namespace Sherpa\Core\controllers;
 
+use Sherpa\Core\router\HttpMethod;
+use Sherpa\Core\router\Route;
+use Sherpa\Core\router\Router;
+
 class Request
 {
+    private const CSRF_TOKEN_INPUT_KEY = "csrf";
+
     private array $parameters;
     private array $inputs;
 
@@ -101,6 +107,22 @@ class Request
     public function hasInput(string $key): bool
     {
         return isset($this->inputs[$key]);
+    }
+
+    /**
+     * @return string|null Request CSRF token if exists or NULL
+     */
+    public function getCSRFToken(): ?string
+    {
+        return $this->getInput(self::CSRF_TOKEN_INPUT_KEY);
+    }
+
+    /**
+     * @return bool If request has CSRF token
+     */
+    public function hasCSRFToken(): bool
+    {
+        return $this->hasInput(self::CSRF_TOKEN_INPUT_KEY);
     }
 
 }
