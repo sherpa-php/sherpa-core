@@ -28,7 +28,7 @@ class DB
 
     public static function getDatabase(): PDO
     {
-        self::connect($_ENV["DB_DBMS"],
+        return self::connect($_ENV["DB_DBMS"],
                       $_ENV["DB_HOST"],
                       $_ENV["DB_PORT"],
                       $_ENV["DB_DATABASE"],
