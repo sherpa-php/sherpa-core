@@ -12,7 +12,7 @@ class RouteAndCurrentHttpMethodsDoesNotMatchException extends SherpaException
 
     public function __construct()
     {
-        parent::__construct($this);
+        parent::__construct();
     }
 
 }

@@ -16,7 +16,7 @@ class InvalidHttpMethodException extends SherpaException
         HTTP method does no longer exist.
         ";
 
-        parent::__construct($this);
+        parent::__construct();
     }
 
 }

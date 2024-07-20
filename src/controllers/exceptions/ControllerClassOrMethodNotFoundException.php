@@ -18,7 +18,7 @@ class ControllerClassOrMethodNotFoundException extends SherpaException
         method do no longer exist.
         ";
 
-        parent::__construct($this);
+        parent::__construct();
     }
 
 }

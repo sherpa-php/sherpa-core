@@ -16,7 +16,7 @@ class ViewDoesNotExistException extends SherpaException
         view does no longer exist.
         ";
 
-        parent::__construct($this);
+        parent::__construct();
     }
 
 }
