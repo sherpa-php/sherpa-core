@@ -53,6 +53,9 @@ class Query
         return $this->executeState;
     }
 
+    /**
+     * Execute current query, store statement and execution state.
+     */
     private function execute(): void
     {
         $database = DB::getDatabase();
@@ -65,6 +68,9 @@ class Query
             ->execute($this->getArguments());
     }
 
+    /**
+     * @return mixed `$statement->fetch()` method value.
+     */
     public function get(): mixed
     {
         return $this
@@ -72,6 +78,9 @@ class Query
             ->fetch();
     }
 
+    /**
+     * @return array `$statement->fetchAll()` method value.
+     */
     public function getAll(): array
     {
         return $this
