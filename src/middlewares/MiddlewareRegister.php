@@ -2,6 +2,8 @@
 
 namespace Sherpa\Core\middlewares;
 
+use Sherpa\Core\environment\Environment;
+
 class MiddlewareRegister
 {
 
@@ -11,6 +13,8 @@ class MiddlewareRegister
     public function __construct()
     {
         $this->middlewares = [];
+
+        $this->registerInternalMiddlewares();
     }
 
     /**
@@ -20,7 +24,7 @@ class MiddlewareRegister
      */
     public function register(array $middlewares): void
     {
-        $this->middlewares = $middlewares;
+        $this->middlewares = array_merge($this->getMiddlewares(), $middlewares);
     }
 
     /**
@@ -30,6 +34,18 @@ class MiddlewareRegister
     {
         return $this->middlewares;
     }
+
+    /**
+     * Register internal middlewares
+     */
+    private function registerInternalMiddlewares(): void
+    {
+        if (Environment::isTrue("ENABLE_CSRF"))
+        {
+            $this->register([ "csrf" => CSRFTokenMiddleware::class ]);
+        }
+    }
+
 
     /**
      * @return self Current instance
