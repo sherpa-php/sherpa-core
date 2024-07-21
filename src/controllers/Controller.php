@@ -2,6 +2,7 @@
 
 namespace Sherpa\Core\controllers;
 
+use Sherpa\Core\environment\Environment;
 use Sherpa\Core\middlewares\exceptions\NotRegisteredMiddlewareException;
 use Sherpa\Core\middlewares\MiddlewareRegister;
 
@@ -10,9 +11,15 @@ class Controller
 
     private Request $request;
 
+    /** @throws NotRegisteredMiddlewareException */
     public function __construct()
     {
         $this->request = new Request();
+
+        if (Environment::isTrue("ENABLE_CSRF"))
+        {
+            $this->middleware("csrf");
+        }
     }
 
     /**
