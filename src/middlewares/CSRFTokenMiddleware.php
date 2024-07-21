@@ -27,19 +27,14 @@ class CSRFTokenMiddleware extends Middleware
             throw new SessionWithoutCSRFException();
         }
 
-        if (Router::getHttpMethod() !== HttpMethod::POST)
-        {
-            $this->finish();
-        }
+        if (Router::getHttpMethod() === HttpMethod::POST) {
+            if (!$request->hasCSRFToken()) {
+                throw new NoneCSRFTokenException();
+            }
 
-        if (!$request->hasCSRFToken())
-        {
-            throw new NoneCSRFTokenException();
-        }
-
-        if (!Session::getCSRFToken()->verify($request->getCSRFToken()))
-        {
-            throw new InvalidCSRFTokenException();
+            if (!Session::getCSRFToken()->verify($request->getCSRFToken())) {
+                throw new InvalidCSRFTokenException();
+            }
         }
 
         $this->finish();
