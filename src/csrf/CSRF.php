@@ -31,7 +31,7 @@ class CSRF
      */
     private function storeToken(): void
     {
-        $_SESSION["sherpa-csrf-token"] = $this->getToken();
+        $_SESSION["sherpa-csrf-token"] = $this;
     }
 
     public function verify(string $token): bool
