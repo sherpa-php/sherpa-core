@@ -22,6 +22,9 @@ class Controller
     {
         $middleware = MiddlewareRegister::getInstance()->getMiddlewares()[$middlewareName]
             ?? throw new NotRegisteredMiddlewareException($middlewareName);
+
+        $middlewareInstance = new $middleware();
+        $middlewareInstance->handle($this->getRequest());
     }
 
     public function getRequest(): Request
