@@ -9,9 +9,10 @@ class CSRF
 {
     private UUID $token;
 
+    /** @throws InvalidUUIDException */
     public function __construct()
     {
-        $this->generate();
+        $this->generateToken();
         $this->storeToken();
     }
 
