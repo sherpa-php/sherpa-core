@@ -46,6 +46,14 @@ class MiddlewareRegister
         }
     }
 
+    /**
+     * @param string $middlewareName
+     * @return bool If middleware is registered
+     */
+    public function has(string $middlewareName): bool
+    {
+        return isset($this->getMiddlewares()[$middlewareName]);
+    }
 
     /**
      * @return self Current instance
