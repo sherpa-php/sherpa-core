@@ -14,18 +14,6 @@ class SherpaException extends Exception
     public function __construct()
     {
         parent::__construct();
-
-        self::render($this);
-    }
-
-    /**
-     * Render the Sherpa internal exception UI.
-     *
-     * @param SherpaException $exception Exception to show in UI
-     */
-    private static function render(SherpaException $exception): void
-    {
-        Debug::error($exception);
     }
 
     /**
